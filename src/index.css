@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+   @font-face {
+      font-family: Anybody;
+      font-weight: 400;
+      src: url(/fonts/Anybody-Regular.ttf) format("tff");
+   }
+   @font-face {
+      font-family: Anybody;
+      font-weight: 500;
+      src: url(/fonts/Anybody-500.ttf) format("tff");
+   }
+}
+
+.navbar-link {
+   @apply py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white;
+}
+.objetives-main-cont {
+   @apply flex flex-col gap-4 mt-5;
+}
+.objetive-container {
+   @apply flex justify-between items-center gap-2 py-1 border-y border-gray-500;
+}
+.objetive-name {
+   @apply text-xl dark:text-white;
+}
+.objetive-remove {
+   @apply dark:text-white py-2 px-3 transition  dark:bg-red-900 dark:hover:bg-red-800;
+}
+.objetive-input {
+   @apply flex-grow py-2 px-3 dark:bg-gray-900 dark:text-white;
+}
+
+.objetive-add-button {
+   @apply bg-blue-900 py-2 px-3 dark:text-white hover:bg-blue-800 transition;
+}
+.objetive-new-form {
+   @apply flex justify-between gap-2 mt-3;
+}
+
+/* PERSONAL RECORDS */
+.pr-main-cont {
+   @apply flex flex-col gap-4 mt-5;
+}
+.pr-container {
+   @apply flex justify-between items-center gap-2 py-1 border-y border-gray-500;
+}
+.pr-name {
+   @apply text-xl dark:text-white;
+}
+.pr-remove {
+   @apply dark:text-white py-2 px-3 transition  dark:bg-red-900 dark:hover:bg-red-800;
+}
+.pr-input {
+   @apply flex-grow py-2 px-3 dark:bg-gray-900 dark:text-white;
+}
+
+.pr-add-button {
+   @apply bg-blue-900 py-2 px-3 dark:text-white hover:bg-blue-800 transition;
+}
+.pr-new-form {
+   @apply flex justify-between gap-2 mt-3;
+}
+.pr-peso-btn {
+   @apply bg-blue-900 py-2 px-3 dark:text-white hover:bg-blue-800 transition;
+}
