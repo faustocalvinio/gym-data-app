@@ -7,6 +7,6 @@ export const startLoadingPrs = () => {
       if (!uid) throw new Error("El UID del usuario no existe");
       const prs = await loadPrsFirebase(uid);
 
-      dispatch(setPrs(prs));
+      dispatch(setPrs(prs.flat()));
    };
 };

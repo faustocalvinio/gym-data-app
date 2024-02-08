@@ -1,3 +1,5 @@
+export { editObjetiveFirebase } from "./objetives/editObjetiveFirebase";
+
 export { loadObjectivesFirebase } from "./objetives/loadObjectivesFirebase";
 export { addObjetiveFirebase } from "./objetives/newObjetiveFirebase";
 export { removeObjetiveByIdFirebase } from "./objetives/removeObjetiveFirebase";

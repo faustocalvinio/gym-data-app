@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { PRS_BASE } from "../../globals";
+// import { PRS_BASE } from "../../globals";
 
 export const prsSlice = createSlice({
    name: "prs",
-   initialState: PRS_BASE,
+   initialState: [],
    reducers: {
       setPrs: (state, action) => {
          return action.payload;

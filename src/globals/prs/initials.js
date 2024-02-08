@@ -1,7 +1,6 @@
 export const PRS_BASE = [
    {
-      name: "Press banca",
-      peso: 110,
+      name: "Ejemplo de PR 🙂",
+      peso: 10,
    },
-   { name: "Sentadillas", peso: 80 },
 ];

@@ -1,17 +1,7 @@
 import { collection, doc, getDocs, setDoc } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../firebase/config";
+import { RUTINA_BASE } from "../../globals";
 
-const rutinaBase = {
-   lunes: ["Remo con Barra", "Bicep Mancuerna", "Remo al pecho"],
-   martes: ["Press banca pecho", "Triceps polea", "Press banca declinado"],
-   miercoles: ["Sentadilla", "Peso Muerto", "Estocadas"],
-   jueves: [
-      "Hombro con mancuerna",
-      "Remo al cuello",
-      "Press de hombro en maquina",
-   ],
-   viernes: ["Bicicleta", "Cinta", "Eliptica"],
-};
 
 export const loadRutine = async (uid = "") => {
    if (!uid) throw new Error("El UID del usuario no existe");
@@ -20,13 +10,13 @@ export const loadRutine = async (uid = "") => {
    if (docs.size === 0) {
       try {
          const baseRef = setDoc(doc(FirebaseDB, `rutine-${uid}/`), {
-            ...rutinaBase,
+            ...RUTINA_BASE,
          });
-         return rutinaBase;
+         return RUTINA_BASE;
       } catch (error) {
-         console.log(error);
+         console.error(error);
       }
-   } else {      
+   } else {
       const rutine = [];
       docs.forEach((doc) => {
          rutine.push({ id: doc.id, ...doc.data() });

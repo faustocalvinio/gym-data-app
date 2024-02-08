@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPrFirebase, removePrFirebase } from "../../helpers";
 import { addPr, removePr } from "../../store/prs";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 export const PersonalRecords = () => {
    const [prName, setPrName] = useState("");
    const [prPeso, setPrPeso] = useState(1);
@@ -13,10 +13,9 @@ export const PersonalRecords = () => {
    async function removeHandler(name) {
       removePrFirebase(uid, name);
       dispatch(removePr(name));
-      toast.error('Record eliminado correctamente',{
-         className:"dark:bg-black dark:text-white border dark:border-gray-600",
-         duration:1500
-
+      toast.error("Record eliminado correctamente", {
+         className: "dark:bg-black dark:text-white border dark:border-gray-600",
+         duration: 1500,
       });
    }
 
@@ -32,10 +31,9 @@ export const PersonalRecords = () => {
       addPrFirebase(uid, prName, prPeso);
       setPrName("");
       setPrPeso(1);
-      toast.success('Record agregado correctamente',{
-         className:"dark:bg-black dark:text-white border dark:border-gray-600",
-         duration:1500
-
+      toast.success("Record agregado correctamente", {
+         className: "dark:bg-black dark:text-white border dark:border-gray-600",
+         duration: 1500,
       });
    }
 
@@ -43,7 +41,7 @@ export const PersonalRecords = () => {
 
    return (
       <main className="dark:text-white px-2">
-         <h1 className="text-5xl mt-4 dark:text-white">Personal Records</h1>
+         <h1 className="page-title">Personal Records</h1>
          <form
             action=""
             className="pr-new-form"
@@ -55,7 +53,7 @@ export const PersonalRecords = () => {
                onChange={(e) => setPrName(e.target.value)}
                name=""
                id=""
-               className="pr-input"
+               className="pr-input w-[80%]"
                placeholder="Nombre del ejercicio"
             />
             <input
@@ -64,10 +62,10 @@ export const PersonalRecords = () => {
                value={prPeso}
                onChange={(e) => setPrPeso(e.target.value)}
                id=""
-               className="pr-input"
+               className="pr-input w-[20%]"
             />
             <button className="pr-add-button" type="submit">
-               Agregar
+               +
             </button>
          </form>
          <div className="pr-main-cont">
@@ -77,14 +75,16 @@ export const PersonalRecords = () => {
                      <h1>{pr.name}</h1>
                   </div>
                   <div className="flex gap-2 items-center">
-                     <button className="pr-peso-btn">-</button>
-                     <span>{pr.peso}</span>
-                     <button className="pr-peso-btn">+</button>
+                     {/* <input type="number"  placeholder="peso" className="w-20 text-black" value={parseInt(pr.peso)}/> */}
+                     {/* <button className="pr-peso-btn">-</button> */}
+                     <span className="text-xl">{pr.peso}</span>
+
+                     {/* <button className="pr-peso-btn">+</button> */}
                      <button
                         className="pr-remove"
                         onClick={() => removeHandler(pr.name)}
                      >
-                        Borrar
+                        X
                      </button>
                   </div>
                </div>

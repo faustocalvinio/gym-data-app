@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { OBJETIVOS_BASE } from "../../globals";
+// import { OBJETIVOS_BASE } from "../../globals";
 
 export const objetivesSlice = createSlice({
    name: "objetives",
-   initialState: OBJETIVOS_BASE,
+   initialState: [],
    reducers: {
       setObjetives: (state, action) => {
-         return action.payload;
+         return (state = action.payload);
       },
       deleteObjetive: (state, action) => {
          return state.filter((objetive) => objetive.id !== action.payload);
@@ -14,8 +14,16 @@ export const objetivesSlice = createSlice({
       addObjetive: (state, action) => {
          state.push(action.payload);
       },
+      setCompleted: (state, action) => {
+         state.forEach((objetive) => {
+            if (objetive.id === action.payload) {
+               objetive.completed = !objetive.completed;
+            }
+         });
+         return state;
+      },
    },
 });
 
-export const { deleteObjetive, addObjetive, setObjetives } =
+export const { deleteObjetive, addObjetive, setObjetives, setCompleted } =
    objetivesSlice.actions;
