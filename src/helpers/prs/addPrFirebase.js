@@ -11,4 +11,3 @@ export const addPrFirebase = async (uid = "", name, peso) => {
       console.log(error);
    }
 };
-

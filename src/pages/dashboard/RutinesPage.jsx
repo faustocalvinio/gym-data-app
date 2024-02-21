@@ -24,15 +24,13 @@ export const RutinesPage = () => {
    }, [rutinaDesdeRedux]);
 
    return (
-      <div>     
+      <div>
          {isLoading ? (
             <CheckingAuth />
          ) : (
             <>
                <section>
-                
                   <h1>{JSON.stringify(rutina)}</h1>
-                 
                </section>
                <button
                   className="bg-blue-500 text-white p-2 rounded-md"

@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { PRS_BASE } from "../../globals";
 
 export const prsSlice = createSlice({
    name: "prs",
@@ -13,9 +12,14 @@ export const prsSlice = createSlice({
          return state;
       },
       removePr: (state, action) => {
-         return state.filter((pr) => pr.name !== action.payload);      
+         return state.filter((pr) => pr.name !== action.payload);
+      },
+      editPr: (state, action) => {
+         const { name, nuevoPeso } = action.payload;
+         const modifPr = { name, peso: Number(nuevoPeso) };
+         return state.map((pr) => (pr.name === name ? modifPr : pr));
       },
    },
 });
 
-export const { setPrs, addPr, removePr } = prsSlice.actions;
+export const { setPrs, addPr, removePr, editPr } = prsSlice.actions;

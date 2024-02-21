@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { OBJETIVOS_BASE } from "../../globals";
 
 export const objetivesSlice = createSlice({
    name: "objetives",

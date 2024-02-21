@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPrFirebase, removePrFirebase } from "../../helpers";
-import { addPr, removePr } from "../../store/prs";
+import { addPrFirebase, editPrFirebase, removePrFirebase } from "../../helpers";
+import { addPr, editPr, removePr } from "../../store/prs";
 import toast, { Toaster } from "react-hot-toast";
+import { CrossIcon, EditIcon, PlusIcon, UploadIcon } from "../../components";
 export const PersonalRecords = () => {
    const [prName, setPrName] = useState("");
    const [prPeso, setPrPeso] = useState(1);
+   const [isEditing, setIsEditing] = useState("");
    const { uid } = useSelector((state) => state.auth);
    const prs = useSelector((state) => state.prs);
    const dispatch = useDispatch();
@@ -17,6 +19,11 @@ export const PersonalRecords = () => {
          className: "dark:bg-black dark:text-white border dark:border-gray-600",
          duration: 1500,
       });
+   }
+
+   function setIsEditingName(name) {
+      if (isEditing === name) setIsEditing("");
+      else setIsEditing(name);
    }
 
    async function addPrHandler(e) {
@@ -35,6 +42,14 @@ export const PersonalRecords = () => {
          className: "dark:bg-black dark:text-white border dark:border-gray-600",
          duration: 1500,
       });
+   }
+   function onDoneEdit(e, name) {
+      e.preventDefault();
+      //  console.log(e.target[0].value);
+      const nuevoPeso = e.target[0].value;
+      editPrFirebase(uid, name, nuevoPeso);
+      dispatch(editPr({ name, nuevoPeso }));
+      setIsEditing("");
    }
 
    useEffect(() => {}, [prs]);
@@ -65,7 +80,7 @@ export const PersonalRecords = () => {
                className="pr-input w-[20%]"
             />
             <button className="pr-add-button" type="submit">
-               +
+               <PlusIcon />
             </button>
          </form>
          <div className="pr-main-cont">
@@ -74,17 +89,38 @@ export const PersonalRecords = () => {
                   <div className="">
                      <h1>{pr.name}</h1>
                   </div>
-                  <div className="flex gap-2 items-center">
-                     {/* <input type="number"  placeholder="peso" className="w-20 text-black" value={parseInt(pr.peso)}/> */}
-                     {/* <button className="pr-peso-btn">-</button> */}
-                     <span className="text-xl">{pr.peso}</span>
-
-                     {/* <button className="pr-peso-btn">+</button> */}
+                  <div className="flex gap-2 items-center">                    
+                     <div
+                        className="p-2 cursor-pointer"
+                        onClick={() => setIsEditingName(pr.name)}
+                     >
+                        <EditIcon />
+                     </div>
+                     {isEditing === pr.name && (                       
+                           <form
+                           className="flex gap-2"
+                              action=""
+                              onSubmit={(e) => onDoneEdit(e, pr.name)}
+                           >
+                              <input
+                                 type="number"
+                                 className="pr-input w-20"
+                                 defaultValue={pr.peso}
+                              />
+                              <button
+                                 type="submit"
+                                 className="w-[49px] h-[41px] flex justify-center items-center bg-green-950"
+                              >
+                                 <UploadIcon />
+                              </button>
+                           </form>
+                     )}
+                     <span className="text-xl">{pr.peso}</span>                  
                      <button
                         className="pr-remove"
                         onClick={() => removeHandler(pr.name)}
                      >
-                        X
+                        <CrossIcon />
                      </button>
                   </div>
                </div>

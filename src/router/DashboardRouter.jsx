@@ -1,5 +1,10 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { HomePage, ObjetivesPage,  PersonalRecords, RutinesPage } from "../pages";
+import {
+   HomePage,
+   ObjetivesPage,
+   PersonalRecords,
+   RutinesPage,
+} from "../pages";
 import { AppLayout } from "../layout/AppLayout";
 
 export const DashboardRouter = () => {

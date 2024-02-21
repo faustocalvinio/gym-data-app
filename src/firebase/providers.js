@@ -18,8 +18,6 @@ export const singInWithGoogle = async () => {
       };
    } catch (error) {
       console.error(error);
-      const errorCode = error.code;
-      console.log(errorCode);
       const errorMessage = error.message;
       return {
          ok: false,

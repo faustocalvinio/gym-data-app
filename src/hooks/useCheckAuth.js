@@ -20,6 +20,7 @@ export const useCheckAuth = () => {
          dispatch(startLoadingObjetivos());
          dispatch(startLoadingPrs());
       });
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
    return status;
 };

@@ -1,2 +1,2 @@
-export * from './rutineThunks';
-export * from './rutineSlice';
+export * from "./rutineThunks";
+export * from "./rutineSlice";

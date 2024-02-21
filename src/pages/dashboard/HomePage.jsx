@@ -72,7 +72,6 @@ export const HomePage = () => {
             <ol className="list-decimal px-4">
                <li className="">checkbox done objective</li>
                <li>example user in login page</li>
-             
             </ol>
          </div>
       </main>
