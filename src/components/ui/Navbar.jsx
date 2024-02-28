@@ -28,13 +28,13 @@ export const Navbar = () => {
             >
                <ul className="flex justify-between w-full gap-2">
                   <li>
-                     <Link to={`/objetives`} className="navbar-link">
+                     <Link to={`/objetivos`} className="navbar-link">
                         Objetivos
                      </Link>
                   </li>
                   <li className="">
                      <Link
-                        to={`/rutines`}
+                        to={`/rutinas`}
                         className="navbar-link hover:text-cyan-500"
                      >
                         Rutinas

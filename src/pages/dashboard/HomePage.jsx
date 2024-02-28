@@ -6,7 +6,7 @@ export const HomePage = () => {
          <h1 className="text-white text-4xl">🤸🤩🙂</h1>
          <div className="mt-4 flex flex-col gap-2">
             <Link
-               to={`/rutines`}
+               to={`/rutinas`}
                className="inline-flex items-center justify-center px-4  py-3 text-base font-medium text-gray-500 rounded-lg bg-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
             >
                <span className="w-full">Rutinas</span>
@@ -48,7 +48,7 @@ export const HomePage = () => {
                </svg>
             </Link>
             <Link
-               to={`/objetives`}
+               to={`/objetivos`}
                className="inline-flex items-center justify-center px-4  py-3 text-base font-medium text-gray-500 rounded-lg bg-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
             >
                <span className="w-full">Objetivos</span>
@@ -70,7 +70,6 @@ export const HomePage = () => {
             </Link>
             <h4>To-do</h4>
             <ol className="list-decimal px-4">
-               <li className="">checkbox done objective</li>
                <li>example user in login page</li>
             </ol>
          </div>

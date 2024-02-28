@@ -12,9 +12,9 @@ export const DashboardRouter = () => {
       <AppLayout>
          <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/rutines" element={<RutinesPage />} />
+            <Route path="/rutinas" element={<RutinesPage />} />
             <Route path="/prs" element={<PersonalRecords />} />
-            <Route path="/objetives" element={<ObjetivesPage />} />
+            <Route path="/objetivos" element={<ObjetivesPage />} />
             <Route path="/*" element={<Navigate to="/" />} />
          </Routes>
       </AppLayout>
