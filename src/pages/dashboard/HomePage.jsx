@@ -70,7 +70,7 @@ export const HomePage = () => {
             </Link>
             <h4>To-do</h4>
             <ol className="list-decimal px-4">
-               <li>example user in login page</li>
+               <li className="line-through text-red-700">example user in login page</li>
             </ol>
          </div>
       </main>

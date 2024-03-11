@@ -15,6 +15,7 @@
    }
 }
 
+
 /*Start Animations*/
 @-webkit-keyframes animatetop {
    from {
@@ -236,3 +237,15 @@
 .pr-peso-btn {
    @apply bg-blue-900 py-2 px-3 dark:text-white hover:bg-blue-800 transition;
 }
+::-webkit-scrollbar {
+   width: 12px; /* Ancho de la barra de desplazamiento */
+ }
+ 
+ ::-webkit-scrollbar-track {
+   background-color: #595959; /* Color de fondo de la pista */
+ }
+ 
+ ::-webkit-scrollbar-thumb {
+   background-color: #3b3b3b; /* Color del pulgar de la barra de desplazamiento */
+   /* Borde redondeado del pulgar */
+ }

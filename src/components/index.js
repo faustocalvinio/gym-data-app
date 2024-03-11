@@ -1,3 +1,5 @@
+export { Checkbox } from "./ui/Checkbox";
+
 export { GoogleLogin } from "./ui/icons/GoogleLogin";
 
 export { CirclesAnimation } from "./ui/CirclesAnimation";

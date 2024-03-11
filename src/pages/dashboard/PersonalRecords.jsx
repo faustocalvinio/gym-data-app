@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPrFirebase, editPrFirebase, removePrFirebase } from "../../helpers";
+import { addPrFirebase, editPrFirebase, getUuid, removePrFirebase } from "../../helpers";
 import { addPr, editPr, removePr } from "../../store/prs";
 import toast, { Toaster } from "react-hot-toast";
 import { CrossIcon, EditIcon, PlusIcon, UploadIcon } from "../../components";
@@ -50,6 +50,10 @@ export const PersonalRecords = () => {
       editPrFirebase(uid, name, nuevoPeso);
       dispatch(editPr({ name, nuevoPeso }));
       setIsEditing("");
+      toast.success(`Record ${name} editado correctamente`, {
+         className: "dark:bg-black dark:text-white border dark:border-gray-600",
+         duration: 1500,
+      });
    }
 
    useEffect(() => {}, [prs]);
@@ -85,37 +89,37 @@ export const PersonalRecords = () => {
          </form>
          <div className="pr-main-cont">
             {prs?.map((pr) => (
-               <div key={crypto.randomUUID()} className="pr-container">
+               <div key={getUuid()} className="pr-container">
                   <div className="">
                      <h1>{pr.name}</h1>
                   </div>
-                  <div className="flex gap-2 items-center">                    
+                  <div className="flex gap-2 items-center">
                      <div
                         className="p-2 cursor-pointer"
                         onClick={() => setIsEditingName(pr.name)}
                      >
                         <EditIcon />
                      </div>
-                     {isEditing === pr.name && (                       
-                           <form
+                     {isEditing === pr.name && (
+                        <form
                            className="flex gap-2"
-                              action=""
-                              onSubmit={(e) => onDoneEdit(e, pr.name)}
+                           action=""
+                           onSubmit={(e) => onDoneEdit(e, pr.name)}
+                        >
+                           <input
+                              type="number"
+                              className="pr-input w-20"
+                              defaultValue={pr.peso}
+                           />
+                           <button
+                              type="submit"
+                              className="w-[49px] h-[41px] flex justify-center items-center bg-green-950"
                            >
-                              <input
-                                 type="number"
-                                 className="pr-input w-20"
-                                 defaultValue={pr.peso}
-                              />
-                              <button
-                                 type="submit"
-                                 className="w-[49px] h-[41px] flex justify-center items-center bg-green-950"
-                              >
-                                 <UploadIcon />
-                              </button>
-                           </form>
+                              <UploadIcon />
+                           </button>
+                        </form>
                      )}
-                     <span className="text-xl">{pr.peso}</span>                  
+                     <span className="text-xl">{pr.peso}</span>
                      <button
                         className="pr-remove"
                         onClick={() => removeHandler(pr.name)}
